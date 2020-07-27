@@ -13,25 +13,16 @@ def change_to_integer(ed):
 			if ed == data[0]:
 				return data[1]
 
-#data = input()
 def main_change(data):
 	data = data.lower()
-	send = []
-	for data in data:
-		send.append(change_to_integer(data))
-	return send
+	return [change_to_integer(data) for data in data]
 
 
 def main():
-	send_data = []
 	fi = open('data.txt', 'r').read().split('\n')
-	main_data = []
-	for data in fi:
-		main_data.append(data.replace('"', ''))
-	
-	for data in main_data:
-		send_data.append(main_change(data))
-	return send_data
+	#test = ["hello its Me I was WonderING 'about", "dfansdvlakdkscdmskd", "dseiwenkxnsd"]
+	main_data = [data.replace('"', '') for data in test]	
+	return [main_change(data) for data in main_data]
 
 if __name__ == '__main__':
 	print(main())
