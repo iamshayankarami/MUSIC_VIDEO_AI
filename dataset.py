@@ -1,3 +1,4 @@
+import os
 def change_to_integer(ed):
 	edjs = "abcdefghijklmnopqrstuvwxyz ,'"
 	all_data = []
@@ -17,12 +18,22 @@ def main_change(data):
 	data = data.lower()
 	return [change_to_integer(data) for data in data]
 
+def remove_N(data):
+	for d in data:
+		if d == None:
+			data.remove(d)
+	return data
 
-def main():
-	fi = open('data.txt', 'r').read().split('\n')
+def main(fi):
 	#test = ["hello its Me I was WonderING 'about", "dfansdvlakdkscdmskd", "dseiwenkxnsd"]
-	main_data = [data.replace('"', '') for data in test]	
-	return [main_change(data) for data in main_data]
+	return main_change(data)
 
 if __name__ == '__main__':
-	print(main())
+	directiry = 'Desktop/6776_81739_bundle_archive'
+	for filename in os.listdir(directiry):
+		#print(main(os.path.join(directiry, filename)), '\n')
+		t = open(os.path.join(directiry, filename)).read().split('\n')
+		for data in t:
+			if data == None:
+				t.remove(data)
+			print(main(data.lower()))
