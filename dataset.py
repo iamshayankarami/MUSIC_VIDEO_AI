@@ -1,6 +1,6 @@
 import os
 def change_to_integer(ed):
-	edjs = "abcdefghijklmnopqrstuvwxyz ,'"
+	edjs = "abcdefghijklmnopqrstuvwxyz ,' ()"
 	all_data = []
 	for i, edj in enumerate(edjs):
 		send = i, edj
@@ -15,25 +15,31 @@ def change_to_integer(ed):
 				return data[1]
 
 def main_change(data):
-	data = data.lower()
 	return [change_to_integer(data) for data in data]
 
-def remove_N(data):
-	for d in data:
-		if d == None:
-			data.remove(d)
-	return data
+def remove_N(DATA):
+	for data in DATA:
+		if len(data) == 0:
+			DATA.remove(data)
+	return DATA
 
-def main(fi):
-	#test = ["hello its Me I was WonderING 'about", "dfansdvlakdkscdmskd", "dseiwenkxnsd"]
-	return main_change(data)
+def new_try(File):
+	send = []
+	for line in File:
+		line = line.split(' ')
+		send.append([main_change(data.lower()) for data in line])
+	return send
+
+def main(filename, Dir):
+	FILE = open(os.path.join(Dir, filename)).read().split('\n')
+	return new_try(FILE)
+
+def transfer(data):
+	for line in data:
+		return [main_change(d) for d in line]
 
 if __name__ == '__main__':
 	directiry = 'Desktop/6776_81739_bundle_archive'
 	for filename in os.listdir(directiry):
-		#print(main(os.path.join(directiry, filename)), '\n')
-		t = open(os.path.join(directiry, filename)).read().split('\n')
-		for data in t:
-			if data == None:
-				t.remove(data)
-			print(main(data.lower()))
+		data = main(filename, directiry)
+		print(transfer(data))
