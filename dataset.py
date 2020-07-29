@@ -1,5 +1,7 @@
 import os
+from numba import cuda
 
+@cuda.jit()
 def change_to_integer(ed):
 	edjs = "abcdefghijklmnopqrstuvwxyz ,' ()"
 	all_data = []
