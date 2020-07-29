@@ -1,4 +1,5 @@
 import os
+
 def change_to_integer(ed):
 	edjs = "abcdefghijklmnopqrstuvwxyz ,' ()"
 	all_data = []
@@ -41,5 +42,8 @@ def transfer(data):
 if __name__ == '__main__':
 	directiry = 'Desktop/6776_81739_bundle_archive'
 	for filename in os.listdir(directiry):
-		data = main(filename, directiry)
-		print(transfer(data))
+		print(filename, '\n')
+		print(main(filename, directiry))
+	
+		#data = main(filename, directiry)
+		#print(transfer(data))
