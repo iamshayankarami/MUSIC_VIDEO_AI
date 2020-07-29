@@ -39,11 +39,20 @@ def transfer(data):
 	for line in data:
 		return [main_change(d) for d in line]
 
+class SHOW:
+	def __init__(self, filename, Dir):
+		self.filename = filename
+		self.Dir = Dir
+	def CI(self):
+		self.File = open(os.path.join(self.Dir, self.filename)).read().split('\n')
+		print(new_try(self.File))
+	def CS(self):
+		return [transfer(f) for f in File]
+		
+
 if __name__ == '__main__':
 	directiry = 'Desktop/6776_81739_bundle_archive'
 	for filename in os.listdir(directiry):
-		print(filename, '\n')
-		print(main(filename, directiry))
-	
-		#data = main(filename, directiry)
-		#print(transfer(data))
+		show = SHOW(filename, directiry)
+		show.CI()
+
