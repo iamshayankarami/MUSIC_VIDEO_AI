@@ -31,10 +31,6 @@ def new_try(File):
 		send.append([main_change(data.lower()) for data in line])
 	return send
 
-def main(filename, Dir):
-	FILE = open(os.path.join(Dir, filename)).read().split('\n')
-	return new_try(FILE)
-
 def transfer(data):
 	for line in data:
 		return [main_change(d) for d in line]
